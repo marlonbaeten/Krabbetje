@@ -2,15 +2,15 @@
 
 ## Encrypt and decrypt files using a passphrase or key
 
-Krabbetje is a command line interface tool that allow the user to
+Krabbetje is a command line interface tool that allows the user to
 encrypt or decrypt the contents of a file. It is intended to allow the user to
-commit secrets (configuration) files in a repository without leaking them
-when a repository gets compromised and preventing the secrets from appearing
+commit secret (configuration) files in a repository without leaking them
+when a repository gets compromised and prevent the secrets from appearing
 on disk in plain.
 
 ## Features
 
-- Encrypt or decrypt a UTF8 encoded text files
+- Encrypt or decrypt UTF8 encoded text files
 - Encrypt or decrypt only the values of Yaml files
 - Uses AES 256 GCM for encryption and PBKDF2 + SHA 256 for key derivation
 
