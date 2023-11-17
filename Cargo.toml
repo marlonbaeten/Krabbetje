@@ -1,0 +1,29 @@
+[package]
+name = "krabbetje"
+categories = ["vault", "cryptography"]
+description = "Encrypt and decrypt files using a passphrase or key"
+version = "0.1.0"
+license = "MIT"
+edition = "2021"
+readme = "README.md"
+repository = "https://github.com/marlonbaeten/krabbetje"
+
+[lib]
+name = "krabbetje"
+path = "src/lib.rs"
+
+[[bin]]
+name = "krabbetje-cli"
+path = "src/cli.rs"
+
+[dependencies]
+aes-gcm = "0.10"
+pbkdf2 = "0.12"
+data-encoding = "2.3"
+rand = "0.8"
+serde_yaml = "0.9"
+sha2 = "0.10"
+rpassword = "7.2"
+
+[dev-dependencies]
+indoc = "2.0"
