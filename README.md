@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/marlonbaeten/krabbetje/main/krabbetje.svg" width="400" alt="Krabbetje logo" />
+
 # Krabbetje vault
 
 ## Encrypt and decrypt files using a passphrase or key
