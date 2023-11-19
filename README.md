@@ -20,29 +20,29 @@ on disk in plain.
 
 - Only supports UTF8 encoded files
 - The resulting ciphertext files are larger than the originals, since they
-are base64 encoded and contain the salt that is used to derive a key from the
+are base64 encoded and contain the salt used to derive a key from the
 passphrase
 - Each ciphertext contains a special header to identify Krabbetje encrypted
 files
-- Yaml files are always parsed, the root keys are left in plain and all values
+- Yaml files are always parsed, the root keys are left in plain, and all values
 are encrypted
 - Yaml files especially grow in size since there is a salt per value
 
 ## Usage
 
-Krabbetje wil automatically detect if the provided file is a krabbetje vault
+Krabbetje will automatically detect if the provided file is a krabbetje vault
 and either encrypt or decrypt its contents accordingly and print the result to
 stdout.
 
 To view the encrypted/decrypted contents of a file:
 
-```
+```shell
 krabbetje <file>
 ```
 
 or pipe the resulting ciphertext/plaintext to a file:
 
-```
+``` shell
 krabbetje <file> > <target_file>
 ```
 
