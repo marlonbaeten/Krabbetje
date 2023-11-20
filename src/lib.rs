@@ -65,7 +65,7 @@ fn random_bytes<const N: usize>() -> [u8; N] {
 }
 
 /// derive a AES 256 GCM key, using a password as input,
-/// the 32 byte salt will be filled with random data when omitted as paramater
+/// the 32 byte salt will be filled with random data when omitted as parameter
 fn derive_key(password: &str, salt: Option<Salt>) -> (Key, Salt) {
     let salt: Salt = salt.unwrap_or(random_bytes());
     let key_data = pbkdf2_hmac_array::<Sha256, 32>(password.as_bytes(), &salt, PBKDF_ROUNDS);
@@ -280,8 +280,8 @@ mod test {
     #[test]
     fn test_encrypt_decrypt() {
         let (key, _) = derive_key("krabbetje", None);
-        let plain_text = "Hello, world!".repeat(1);
-        let cipher_text = encrypt(&key, &plain_text).unwrap();
+        let plain_text = "Hello, world!";
+        let cipher_text = encrypt(&key, plain_text).unwrap();
         let decrypted = decrypt(&key, &cipher_text).unwrap();
 
         assert_eq!(plain_text, decrypted);
@@ -296,8 +296,8 @@ mod test {
             database_url: postgresql://example:O5OcIMBfPKHzSLir9xJnp0fJKbZUKm@database/example
         "};
 
-        let yaml = encrypt_yaml(&source, &password).unwrap();
-        let result = decrypt_yaml(&yaml, &password).unwrap();
+        let yaml = encrypt_yaml(source, password).unwrap();
+        let result = decrypt_yaml(&yaml, password).unwrap();
 
         assert_eq!(source, result);
     }
@@ -319,8 +319,8 @@ mod test {
             Phasellus bibendum augue vel nulla facilisis, vel congue dolor imperdiet.
         "};
 
-        let cipher_text = encrypt_string(&source, &password).unwrap();
-        let result = decrypt_string(&cipher_text, &password).unwrap();
+        let cipher_text = encrypt_string(source, password).unwrap();
+        let result = decrypt_string(&cipher_text, password).unwrap();
 
         assert_eq!(source, result);
     }
